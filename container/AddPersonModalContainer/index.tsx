@@ -9,11 +9,6 @@ const AddPersonModalContainer: React.FC = () => {
 
   const [grade, setGrade] = useState(null);
 
-  const handleChangeName = e => {
-    setName(e.target.value);
-  };
-  const handleChangeGithubId = e => {
-    setGithubId(e.target.value);
   };
 
   const handleAddPerson = async () => {

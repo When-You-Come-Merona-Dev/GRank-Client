@@ -26,6 +26,19 @@ const RankContainer: React.FC = () => {
       });
     }
   };
+
+  const setGradeFilter = () => {
+    if (gradeFilter === 3) {
+      setGrade(1);
+    } else {
+      setGrade(gradeFilter + 1);
+    }
+  };
+
+  const setAllFilter = () => {
+    setGrade(0);
+  };
+
   const handleLoadCommitRanks = useCallback(() => {
     const status = useRecoilValueLoadable(commitRank(1));
     switch (status.state) {

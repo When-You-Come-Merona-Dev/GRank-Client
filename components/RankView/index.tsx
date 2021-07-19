@@ -2,7 +2,6 @@ import React from "react";
 import Title from "./Title";
 import * as S from "./styled";
 import RankItem from "./RankItem";
-import Image from "next/image";
 
 interface IRankItem {
   rank?: number;

@@ -41,6 +41,12 @@ const RankView: React.FC<IRankView> = ({ filterGrade, rankList, linkToNewTap, sh
           ) : (
             rankList
               .filter(info => info.is_approved)
+              .filter(info => {
+                if (filterGrade === 0) {
+                  return info;
+                }
+                return filterGrade === info.grade;
+              })
               .map((info, index) => <RankItem key={index} rank={index + 1} {...info} linkToNewTap={linkToNewTap} />)
           )
         ) : (

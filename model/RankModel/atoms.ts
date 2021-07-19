@@ -12,3 +12,9 @@ export const commitRank = atomFamily({
         }
     })
 })
+
+
+export const gradeFilterState = atom({
+    key: "gradeFilter",
+    default : 3
+})

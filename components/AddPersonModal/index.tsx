@@ -13,16 +13,14 @@ interface IRankItem {
 }
 
 interface IAddPersonModal {
-  name: number | null;
-  githubId: string;
+  grade: number | null;
   userinfo: IRankItem;
-  setName: (e: any) => void;
-  setGithubId: (e: any) => void;
+  setGrade: (e: any) => void;
   addPerson: () => void;
   removeModal: () => void;
 }
 
-const AddPersonModal: React.FC<IAddPersonModal> = ({ name, githubId, userinfo, setGithubId, setName, addPerson, removeModal }) => {
+const AddPersonModal: React.FC<IAddPersonModal> = ({ grade, userinfo, setGrade, addPerson, removeModal }) => {
   return (
     <S.Positioner>
       <S.Wrapper>
@@ -38,7 +36,7 @@ const AddPersonModal: React.FC<IAddPersonModal> = ({ name, githubId, userinfo, s
             <span>{userinfo.username}</span>
           </S.ProfileWrapper>
           <S.AddPersonForm>
-            <input type="text" placeholder="학년을 입력하세요" value={name} onChange={setName} />
+            <input type="text" placeholder="학년을 입력하세요" value={grade} onChange={setGrade} />
             {/* <S.UserGroupListWrapper>
               <span>속한 그룹</span>
               <div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRecoilValueLoadable } from "recoil";
 import { AddPersonModal } from "../../components";
 import useModal from "../../hooks/useModal";
 import RankAPI from "../../lib/apis/Rank/RankAPI";
@@ -9,6 +10,16 @@ const AddPersonModalContainer: React.FC = () => {
 
   const [grade, setGrade] = useState(null);
 
+  const handleUserInfo = () => {
+    const userinfoState = useRecoilValueLoadable(getUserInfo);
+    switch (userinfoState.state) {
+      case "hasError":
+        return "Error";
+      case "loading":
+        return "대기중...";
+      case "hasValue":
+        return userinfoState.contents;
+    }
   };
 
   const handleAddPerson = async () => {

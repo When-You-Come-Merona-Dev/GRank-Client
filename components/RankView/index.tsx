@@ -7,6 +7,7 @@ interface IRankItem {
   rank?: number;
   id: number;
   username: string;
+  grade: number;
   avatar_url: string;
   commit_count: number;
   is_approved: boolean;
@@ -15,10 +16,14 @@ interface IRankItem {
 
 interface IRankView {
   rankList: IRankItem[] | string;
+  filterGrade: number;
   linkToNewTap: (url) => void;
+  showAddPersonModal: () => void;
+  setGradeFilter: () => void;
+  setAllFilter: () => void;
 }
 
-const RankView: React.FC<IRankView> = ({ rankList, linkToNewTap, showAddPersonModal, showAdminLinkModal }) => {
+const RankView: React.FC<IRankView> = ({ filterGrade, rankList, linkToNewTap, showAddPersonModal, setGradeFilter, setAllFilter }) => {
   return (
     <S.Positioner>
       <Title gradeFilter={filterGrade} showAddPersonModal={showAddPersonModal} setGradeFilter={setGradeFilter} setAllFilter={setAllFilter} />

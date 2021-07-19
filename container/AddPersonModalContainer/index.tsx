@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import { AddPersonModal } from "../../components";
 import useModal from "../../hooks/useModal";
 import RankAPI from "../../lib/apis/Rank/RankAPI";
-
-interface IAddPersonModal {
-  name: string;
-  githubId: string;
-  setName: (e: any) => void;
-  setGithubId: (e: any) => void;
-  addPerson: () => void;
-  removeModal: () => void;
-}
+import { getUserInfo } from "../../model/UserModel/selector";
 
 const AddPersonModalContainer: React.FC = () => {
   const { removeModal } = useModal();

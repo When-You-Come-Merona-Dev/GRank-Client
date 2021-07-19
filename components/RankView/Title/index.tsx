@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./styled";
 
 interface ITItle {
+  showAddPersonModal: () => void;
   setGradeFilter: () => void;
 }
 

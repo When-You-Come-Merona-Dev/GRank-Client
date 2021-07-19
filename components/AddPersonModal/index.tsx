@@ -3,16 +3,26 @@ import Image from "next/image";
 
 import * as S from "./styled";
 
+interface IRankItem {
+  id: number;
+  username: string;
+  avatar_url: string;
+  commit_count: number;
+  is_approved: boolean;
+  groups: Array<any>;
+}
+
 interface IAddPersonModal {
-  name: string;
+  name: number | null;
   githubId: string;
+  userinfo: IRankItem;
   setName: (e: any) => void;
   setGithubId: (e: any) => void;
   addPerson: () => void;
   removeModal: () => void;
 }
 
-const AddPersonModal: React.FC<IAddPersonModal> = ({ name, githubId, setGithubId, setName, addPerson, removeModal }) => {
+const AddPersonModal: React.FC<IAddPersonModal> = ({ name, githubId, userinfo, setGithubId, setName, addPerson, removeModal }) => {
   return (
     <S.Positioner>
       <S.Wrapper>

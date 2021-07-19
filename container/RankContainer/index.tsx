@@ -16,7 +16,7 @@ const RankContainer: React.FC = () => {
     const status = useRecoilValueLoadable(commitRank(1));
     switch (status.state) {
       case "hasError":
-        return null;
+        return "불러오는 중 에러가 발생했습니다.";
       case "loading":
         return "값을 불러오는 중입니다..";
       case "hasValue":

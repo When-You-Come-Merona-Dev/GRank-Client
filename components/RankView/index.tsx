@@ -16,8 +16,6 @@ interface IRankItem {
 
 interface IRankView {
   rankList: IRankItem[] | string;
-  showAddPersonModal: () => void;
-  showAdminLinkModal: () => void;
   linkToNewTap: (url) => void;
 }
 

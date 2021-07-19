@@ -24,20 +24,6 @@ const RankContainer: React.FC = () => {
     }
   }, []);
 
-  const showPersonModal = () => {
-    addModal({
-      key: "AddPeople",
-      props: {},
-    });
-  };
-
-  const showAdminLinkModal = () => {
-    addModal({
-      key: "AdminLink",
-      props: {},
-    });
-  };
-
   return <RankView showAdminLinkModal={showAdminLinkModal} showAddPersonModal={showPersonModal} rankList={handleLoadCommitRanks()} linkToNewTap={linkToNewTap} />;
 };
 

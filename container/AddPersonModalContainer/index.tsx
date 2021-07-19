@@ -7,8 +7,7 @@ import { getUserInfo } from "../../model/UserModel/selector";
 const AddPersonModalContainer: React.FC = () => {
   const { removeModal } = useModal();
 
-  const [name, setName] = useState("");
-  const [githubId, setGithubId] = useState("");
+  const [grade, setGrade] = useState(null);
 
   const handleChangeName = e => {
     setName(e.target.value);
@@ -18,7 +17,7 @@ const AddPersonModalContainer: React.FC = () => {
   };
 
   const handleAddPerson = async () => {
-    await RankAPI.addPersonRank(githubId)
+    await RankAPI.addPersonRank(grade)
       .then(res => {
         if (res.status === 201) {
           alert("등록에 성공하였습니다. 승인 후 랭킹에서 확인이 가능합니다.");
@@ -35,13 +34,12 @@ const AddPersonModalContainer: React.FC = () => {
             alert("이미 등록되어 있는 유저입니다.");
             break;
         }
-        setName("");
-        setGithubId("");
+        setGrade(1);
         removeModal();
       });
   };
 
-  return <AddPersonModal name={name} githubId={githubId} setName={handleChangeName} setGithubId={handleChangeGithubId} addPerson={handleAddPerson} removeModal={removeModal} />;
+  return <AddPersonModal grade={grade} setGrade={setGrade} userinfo={handleUserInfo()} addPerson={handleAddPerson} removeModal={removeModal} />;
 };
 
 export default AddPersonModalContainer;

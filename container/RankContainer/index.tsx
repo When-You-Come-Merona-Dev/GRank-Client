@@ -5,6 +5,7 @@ import useModal from "../../hooks/useModal";
 import { commitRank } from "../../model/RankModel/atoms";
 
 const RankContainer: React.FC = () => {
+  const [isLogged, setLogged] = useRecoilState(loginState);
   const { addModal } = useModal();
 
   const linkToNewTap = url => {
@@ -12,6 +13,16 @@ const RankContainer: React.FC = () => {
     newTap.focus();
   };
 
+  const showRankEnrollModal = () => {
+    if (!isLogged) {
+      alert("Github 로그인이 필요합니다.");
+    } else {
+      addModal({
+        key: "AddPeople",
+        props: {},
+      });
+    }
+  };
   const handleLoadCommitRanks = useCallback(() => {
     const status = useRecoilValueLoadable(commitRank(1));
     switch (status.state) {

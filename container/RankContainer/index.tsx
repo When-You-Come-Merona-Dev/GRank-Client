@@ -1,11 +1,14 @@
 import React, { useCallback } from "react";
-import { useRecoilValueLoadable } from "recoil";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { RankView } from "../../components";
 import useModal from "../../hooks/useModal";
-import { commitRank } from "../../model/RankModel/atoms";
+import { commitRank, gradeFilterState } from "../../model/RankModel/atoms";
+import { loginState } from "../../model/UserModel/atoms";
 
 const RankContainer: React.FC = () => {
   const [isLogged, setLogged] = useRecoilState(loginState);
+  const [gradeFilter, setGrade] = useRecoilState(gradeFilterState);
+
   const { addModal } = useModal();
 
   const linkToNewTap = url => {
@@ -35,7 +38,7 @@ const RankContainer: React.FC = () => {
     }
   }, []);
 
-  return <RankView showAdminLinkModal={showAdminLinkModal} showAddPersonModal={showPersonModal} rankList={handleLoadCommitRanks()} linkToNewTap={linkToNewTap} />;
+  return <RankView rankList={handleLoadCommitRanks()} filterGrade={gradeFilter} linkToNewTap={linkToNewTap} showAddPersonModal={showRankEnrollModal} setGradeFilter={setGradeFilter} setAllFilter={setAllFilter} />;
 };
 
 export default RankContainer;

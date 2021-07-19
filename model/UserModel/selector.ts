@@ -15,3 +15,13 @@ export const getSuccessState = selectorFamily({
     }   
 })
 
+export const getUserInfo = selector({
+    key: "getUserInfo",
+    get: async ({ get }) => {
+        const res = await requestCustomAxios({
+            method: "GET", url: "/github-users/me", header: {
+                'Authorization' : `Bearer ${localStorage.getItem('grank_token')}`,
+        } })
+        return res.data;
+    }
+})

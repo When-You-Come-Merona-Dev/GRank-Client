@@ -33,7 +33,6 @@ const RankView: React.FC<IRankView> = ({ rankList, linkToNewTap, showAddPersonMo
         <span>Groups</span>
       </S.RankListTitleWrapper>
       <S.RankListWrapper>
-        {typeof rankList === "object" ? rankList.length === 0 ? alert("랭킹에 인원이 없습니다.") : rankList.filter(info => info.is_approved).map((info, index) => <RankItem key={index} rank={index + 1} {...info} linkToNewTap={linkToNewTap} />) : <div>{rankList}</div>}
         {typeof rankList === "object" ? (
           rankList.length === 0 ? (
             <div>랭킹에 인원이 없습니다.</div>

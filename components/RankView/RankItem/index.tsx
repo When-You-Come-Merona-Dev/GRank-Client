@@ -5,6 +5,7 @@ interface IRankItem {
   rank?: number;
   id: number;
   username: string;
+  grade: number;
   avatar_url: string;
   commit_count: number;
   is_approved: boolean;
@@ -13,7 +14,7 @@ interface IRankItem {
 }
 
 const rankIcon = ["🥇", "🥈", "🥉"];
-const RankItem: React.FC<IRankItem> = ({ rank, id, username, commit_count, avatar_url, is_approved, groups, linkToNewTap }) => {
+const RankItem: React.FC<IRankItem> = ({ rank, id, username, commit_count, grade, avatar_url, is_approved, groups, linkToNewTap }) => {
   const url = `https://github.com/${username}`;
   return (
     <S.Positioner rank={rank}>

@@ -25,9 +25,11 @@ const AddPersonModalContainer: React.FC = () => {
   const handleAddPerson = async () => {
     await RankAPI.addPersonRank(grade)
       .then(res => {
-        if (res.status === 201) {
-          alert("등록에 성공하였습니다. 승인 후 랭킹에서 확인이 가능합니다.");
-        }
+        RankAPI.renew().then(res => {
+          if (res.status === 200) {
+            alert("등록에 성공하였습니다. 승인 후 랭킹에서 확인이 가능합니다.");
+          }
+        });
         removeModal();
       })
       .catch(error => {

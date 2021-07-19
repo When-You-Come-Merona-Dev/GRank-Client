@@ -1,5 +1,4 @@
 import { AppProps } from "next/app";
-import ModalPortal from "../components/ModalPortal";
 import { GlobalStyle } from "../style/GlobalStyle";
 import { RecoilRoot } from "recoil";
 

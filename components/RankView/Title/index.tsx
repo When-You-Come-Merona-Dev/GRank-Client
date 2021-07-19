@@ -1,13 +1,31 @@
 import React from "react";
 import * as S from "./styled";
 
-const Title: React.FC = () => {
+interface ITItle {
+  gradeFilter: number;
+  showAddPersonModal: () => void;
+  setGradeFilter: () => void;
+  setAllFilter: () => void;
+}
+
+const Title: React.FC<ITItle> = ({ gradeFilter, showAddPersonModal, setGradeFilter, setAllFilter }) => {
   return (
     <S.Positioner>
-      <S.TitleWrapper>
-        <S.TitleText>GRank</S.TitleText>
-        <S.SubTitleText>광주소프트웨어마이스터고등학교 학생들의 동기부여를 위한 커밋랭킹</S.SubTitleText>
-      </S.TitleWrapper>
+      <S.RankMenuWrapper>
+        <span>GSM</span>
+        <span>Github Commit</span>
+        <span>Ranking</span>
+        <S.RankMenuBtnWrapper>
+          <button onClick={showAddPersonModal}>랭킹에 참여하기</button>
+          <button>그룹 추가</button>
+          <button>그룹에 유저 추가</button>
+        </S.RankMenuBtnWrapper>
+      </S.RankMenuWrapper>
+      <S.RankFilterWrapper filter={gradeFilter}>
+        <button onClick={setAllFilter}>전체 순위</button>
+        <button>그룹 순위</button>
+        <button onClick={setGradeFilter}>학년 별 순위</button>
+      </S.RankFilterWrapper>
     </S.Positioner>
   );
 };

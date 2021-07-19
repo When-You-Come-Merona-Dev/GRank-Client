@@ -1,9 +1,10 @@
 import React from "react";
-import { AdminContainer } from "../../container";
+import { AdminContainer, HeaderContainer } from "../../container";
 
 const Admin: React.FC = () => {
   return (
     <>
+      <HeaderContainer />
       <AdminContainer />
     </>
   );

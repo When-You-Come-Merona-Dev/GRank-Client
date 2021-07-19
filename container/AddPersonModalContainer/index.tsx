@@ -1,36 +1,36 @@
+import Router from "next/router";
 import React, { useState } from "react";
+import { useRecoilValueLoadable } from "recoil";
 import { AddPersonModal } from "../../components";
 import useModal from "../../hooks/useModal";
 import RankAPI from "../../lib/apis/Rank/RankAPI";
-
-interface IAddPersonModal {
-  name: string;
-  githubId: string;
-  setName: (e: any) => void;
-  setGithubId: (e: any) => void;
-  addPerson: () => void;
-  removeModal: () => void;
-}
+import { getUserInfo } from "../../model/UserModel/selector";
 
 const AddPersonModalContainer: React.FC = () => {
   const { removeModal } = useModal();
 
-  const [name, setName] = useState("");
-  const [githubId, setGithubId] = useState("");
+  const [grade, setGrade] = useState(null);
 
-  const handleChangeName = e => {
-    setName(e.target.value);
-  };
-  const handleChangeGithubId = e => {
-    setGithubId(e.target.value);
+  const handleUserInfo = () => {
+    const userinfoState = useRecoilValueLoadable(getUserInfo);
+    switch (userinfoState.state) {
+      case "hasError":
+        return "Error";
+      case "loading":
+        return "대기중...";
+      case "hasValue":
+        return userinfoState.contents;
+    }
   };
 
   const handleAddPerson = async () => {
-    await RankAPI.addPersonRank(githubId)
+    await RankAPI.addPersonRank(grade)
       .then(res => {
-        if (res.status === 201) {
-          alert("등록에 성공하였습니다. 승인 후 랭킹에서 확인이 가능합니다.");
-        }
+        RankAPI.renew().then(res => {
+          if (res.status === 200) {
+            alert("등록에 성공하였습니다. 승인 후 랭킹에서 확인이 가능합니다.");
+          }
+        });
         removeModal();
       })
       .catch(error => {
@@ -43,13 +43,12 @@ const AddPersonModalContainer: React.FC = () => {
             alert("이미 등록되어 있는 유저입니다.");
             break;
         }
-        setName("");
-        setGithubId("");
+        setGrade(1);
         removeModal();
       });
   };
 
-  return <AddPersonModal name={name} githubId={githubId} setName={handleChangeName} setGithubId={handleChangeGithubId} addPerson={handleAddPerson} removeModal={removeModal} />;
+  return <AddPersonModal grade={grade} setGrade={setGrade} userinfo={handleUserInfo()} addPerson={handleAddPerson} removeModal={removeModal} />;
 };
 
 export default AddPersonModalContainer;

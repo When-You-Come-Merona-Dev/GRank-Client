@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { RankContainer, HeaderContainer } from "../../container";
 import ModalPortalContainer from "../../container/ModalPortalContainer";
 

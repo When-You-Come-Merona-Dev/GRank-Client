@@ -26,7 +26,6 @@ const AdminView: React.FC<IAdminView> = ({ notAllowUserList, addAllowModal }) =>
       alert("어드민 전용 계정이 없으먼 접근하실 수 없습니다.");
     }
   }, []);
-  console.log(notAllowUserList);
   return (
     <S.Positioner>
       <S.TitleWrapper>

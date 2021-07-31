@@ -24,6 +24,11 @@ export const TitleWrapper = styled.div`
     span {
         color : #fff;
     }
+    @media (max-width : 600px) {
+        span {
+            display : none;
+        }
+    }
 `;
 
 export const MenuWrapper = styled.div`

@@ -27,19 +27,15 @@ const HeaderContainer: React.FC = () => {
   };
 
   const handleGithubLogin = async () => {
+    window.close();
     const newTap = window.open(clientURL);
     newTap.focus();
   };
 
-  const handleLogin = () => {
-    handleGithubLogin();
-  };
-
   const handleLogout = () => {
-    console.log(isLogged);
     setLogged(false);
     localStorage.clear();
-    Router.push("/rank");
+    Router.push("/");
     alert("로그아웃!");
   };
 

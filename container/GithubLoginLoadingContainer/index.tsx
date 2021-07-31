@@ -20,7 +20,7 @@ const GithubLoginLoadingContainer = () => {
         return "잠시 기다려주세요...";
       case "hasValue":
         setLogged(true);
-        Router.push("/rank");
+        Router.push("/");
         return "완료!";
     }
   };

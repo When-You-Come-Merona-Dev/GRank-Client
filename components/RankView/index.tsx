@@ -27,32 +27,36 @@ const RankView: React.FC<IRankView> = ({ filterGrade, rankList, linkToNewTap, sh
   return (
     <S.Positioner>
       <Title gradeFilter={filterGrade} showAddPersonModal={showAddPersonModal} setGradeFilter={setGradeFilter} setAllFilter={setAllFilter} />
-      <S.RankListTitleWrapper>
-        <span>Profile</span>
-        <span>Rank</span>
-        <span>Commit Count</span>
-        <span>Grade</span>
-        <span>Groups</span>
-      </S.RankListTitleWrapper>
-      <S.RankListWrapper>
-        {typeof rankList === "object" ? (
-          rankList.length === 0 ? (
-            <div>랭킹에 인원이 없습니다.</div>
+      <S.RankListTable>
+        <S.RankListTitleWrapper>
+          <tr>
+            <th>Profile</th>
+            <th>Rank</th>
+            <th>Commit Count</th>
+            <th>Grade</th>
+            <th>Groups</th>
+          </tr>
+        </S.RankListTitleWrapper>
+        <S.RankListWrapper>
+          {typeof rankList === "object" ? (
+            rankList.length === 0 ? (
+              <div>랭킹에 인원이 없습니다.</div>
+            ) : (
+              rankList
+                .filter(info => info.is_approved)
+                .filter(info => {
+                  if (filterGrade === 0) {
+                    return info;
+                  }
+                  return filterGrade === info.grade;
+                })
+                .map((info, index) => <RankItem key={index} rank={index + 1} {...info} linkToNewTap={linkToNewTap} />)
+            )
           ) : (
-            rankList
-              .filter(info => info.is_approved)
-              .filter(info => {
-                if (filterGrade === 0) {
-                  return info;
-                }
-                return filterGrade === info.grade;
-              })
-              .map((info, index) => <RankItem key={index} rank={index + 1} {...info} linkToNewTap={linkToNewTap} />)
-          )
-        ) : (
-          <div>{rankList}</div>
-        )}
-      </S.RankListWrapper>
+            <div>{rankList}</div>
+          )}
+        </S.RankListWrapper>
+      </S.RankListTable>
     </S.Positioner>
   );
 };

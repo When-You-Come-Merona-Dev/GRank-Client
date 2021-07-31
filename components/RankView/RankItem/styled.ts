@@ -1,21 +1,15 @@
 import Image from "next/image";
 import styled from "styled-components"
 
-export const Positioner = styled.div<{rank : number}>`
-    width : 100%;
-    display : flex;
-    align-items: center;
-    padding: 15px 0;
-    text-align: center;
-    & > span {
-        width : 8%;
-        padding : 0 14px;
+export const Positioner = styled.tr<{ rank: number }>`
+    width: 100%;
+    th {
         text-align: center;
-        font-size: 15px;
-        color : #000;
         font-weight: bold;
+        font-size : 20px;
+        color : #000 !important;
     }
-    & > span:nth-child(2) {
+    & > th:nth-child(2) {
         font-size : ${props => props.rank > 3 ? `20px` : `35px`}
     }
     
@@ -31,19 +25,14 @@ export const GithubIcon = styled(Image)`
     float: left;
 `;
 
-export const ProfileInfo = styled.div`
-        flex: 0.22;
-        display : flex;
-        align-items: center;
-        justify-content: center;
-        & > div:last-child {
-            padding-left: 15px;
-            float: left;
-        }
-        span {
-            width: 100%;
-            color : #CECECE;
-        }
+export const ProfileInfo = styled.th`
+    & > div {
+        display: flex;
+    }
+    & > th:last-child {
+        float: left;
+    }
+    color : #CECECE;
 `;
 
 export const IdText = styled.span`
@@ -52,21 +41,15 @@ export const IdText = styled.span`
     font-size : 18px;
 `;
 
-export const RankText = styled.span`
-    flex: 0.03;
+export const RankText = styled.th`
 `;
 
-export const CommitCountText = styled.span`
-    flex:  0.2;
+export const CommitCountText = styled.th`
 `;
 
-export const GradeText = styled.span`
-    flex: 0.09;
+export const GradeText = styled.th`
 `;
 
-export const GroupListWrapper = styled.div`
-    flex: 0.49;
-    span {
-        color : #CECECE;
-    }
+export const GroupListWrapper = styled.th`
+    color : #CDCDCD !important;
 `;

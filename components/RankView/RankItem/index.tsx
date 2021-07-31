@@ -9,7 +9,7 @@ interface IRankItem {
   avatar_url: string;
   commit_count: number;
   is_approved: boolean;
-  groups: Array<any>;
+  groups: Array<string>;
   linkToNewTap: (url) => void;
 }
 
@@ -19,19 +19,19 @@ const RankItem: React.FC<IRankItem> = ({ rank, id, username, commit_count, grade
   return (
     <S.Positioner rank={rank}>
       <S.ProfileInfo>
-        <S.ProfileImage width={80} height={80} src={avatar_url} />
         <div>
-          <S.IdText>{username}</S.IdText>
-          <br />
-          <S.GithubIcon width={20} height={20} src={"/githubIcon.png"} onClick={() => linkToNewTap(url)} />
+          <S.ProfileImage width={80} height={80} src={avatar_url} />
+          <div>
+            <S.IdText>{username}</S.IdText>
+            <br />
+            <S.GithubIcon width={20} height={20} src={"/githubIcon.png"} onClick={() => linkToNewTap(url)} />
+          </div>
         </div>
       </S.ProfileInfo>
       <S.RankText>{rankIcon[rank - 1] || rank}</S.RankText>
       <S.CommitCountText>{commit_count.toLocaleString()} commit</S.CommitCountText>
       <S.GradeText>{grade}학년</S.GradeText>
-      <S.GroupListWrapper>
-        <span>{groups.toString() || "그룹 없음"}</span>
-      </S.GroupListWrapper>
+      <S.GroupListWrapper>{groups.toString() || "그룹 없음"}</S.GroupListWrapper>
     </S.Positioner>
   );
 };

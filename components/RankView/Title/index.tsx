@@ -1,14 +1,14 @@
 import React from "react";
 import * as S from "./styled";
 
-interface ITItle {
+interface ITitle {
   gradeFilter: number;
   showAddPersonModal: () => void;
   setGradeFilter: () => void;
   setAllFilter: () => void;
 }
 
-const Title: React.FC<ITItle> = ({ gradeFilter, showAddPersonModal, setGradeFilter, setAllFilter }) => {
+const Title: React.FC<ITitle> = ({ gradeFilter, showAddPersonModal, setGradeFilter, setAllFilter }) => {
   return (
     <S.Positioner>
       <S.RankMenuWrapper>

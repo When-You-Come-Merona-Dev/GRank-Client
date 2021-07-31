@@ -8,42 +8,36 @@ export const Positioner = styled.div`
     align-items: center;
 `;
 
-export const RankListTitleWrapper = styled.div`
-    width : 67%;
-    padding : 10px 0;
-    margin-top : 25px;
-    border-top : 3px solid #D2D2D2;
-    border-bottom : 3px solid #D2D2D2;
-    span {
+export const RankListTable = styled.table`
+    border-collapse: collapse;
+    min-width: 1250px;
+    tr {
+        text-align: left;
+    }
+    tr > th {
         text-align: center;
-        padding : 10px 0;
-        color : #D2D2D2 !important;
+        padding : 12px 60px;
+        color : #CDCDCD;
         font-weight: bold;
         font-size : 20px;
     }
-    span:nth-child(1) {
-        flex: 0.2;
+    tr > th:first-child {
+        padding : 12px 80px;
     }
-    span:nth-child(2) {
-        flex: 0.05;
+    tr > th:last-child {
+        padding : 12px 150px;
     }
-    span:nth-child(3) {
-        flex: 0.2;
-    }
-    span:nth-child(4) {
-        flex: 0.1;
-    }
-    span:nth-child(5) {
-        flex: 0.45;
-    }
-    display : flex;
+`;
+
+export const RankListTitleWrapper = styled.thead`
+    margin-top : 25px;
+    border-top : 3px solid #D2D2D2;
+    border-bottom : 3px solid #D2D2D2;
 `;
 
 
-export const RankListWrapper = styled.div`
-    width : 67%;
-    display : flex;
-    flex-direction : column;
+export const RankListWrapper = styled.tbody`
+
 `;
 
 export const RankItemWrapper = styled.div`

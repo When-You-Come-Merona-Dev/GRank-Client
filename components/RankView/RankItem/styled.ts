@@ -28,10 +28,12 @@ export const GithubIcon = styled(Image)`
 export const ProfileInfo = styled.th`
     & > div {
         display: flex;
+        align-items : center;
     }
     & > th:last-child {
         float: left;
     }
+    
     color : #CECECE;
 `;
 

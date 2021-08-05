@@ -8,6 +8,9 @@ export const Positioner = styled.div`
 
 export const HeaderWrapper = styled.div`
     width : 100%;
+    @media (max-width : 1024px) {
+        width: calc(100%);
+    }
     height : 100%;
     display : flex;
     justify-content: space-around;

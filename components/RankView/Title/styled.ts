@@ -18,12 +18,28 @@ export const RankMenuWrapper = styled.div`
         font-weight : bold;
         font-size: 40px;
     }
+    @media (max-width : 768px) {
+
+        & > span {
+            font-size : 30px;
+            padding-left : 20px;
+        }
+    }
 `;
 export const RankMenuBtnWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top : 15px;
+    @media (max-width : 1024px) {
+        justify-content: center;
+    }
+    @media (max-width : 768px) {
+    }
     button {
+        @media (max-width : 768px) {
+            padding : 15px 40px;
+            font-size : 15px;
+        }
         margin-right: 10px;
         padding : 10px;
         background-color: #63AD73;
@@ -40,7 +56,16 @@ export const RankMenuBtnWrapper = styled.div`
 export const RankFilterWrapper = styled.div<{filter : number}>`
     align-self : flex-start;
     margin-top : 40px;
+    @media (max-width : 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     button {
+        @media (max-width: 768px) {
+            padding:  10px 30px;
+            margin: 10px 0;
+        }
         margin-left : 30px;
         padding: 10px 55px;
         background-color: #fff;

@@ -32,11 +32,17 @@ export const RankListTable = styled.table`
         @media (max-width : 1024px) {
             padding: 8px 40px;
         }
+        @media (max-width : 425px) {
+            padding : 0;
+        }
     }
     tr > th:last-child {
         padding : 12px 150px;
         @media (max-width : 1024px) {
             padding: 8px 80px;
+        }
+        @media (max-width : 425px) {
+            padding : 0;
         }
     }
 `;
@@ -44,6 +50,14 @@ export const RankListTable = styled.table`
 export const RankListTitleWrapper = styled.thead`
     border-top : 3px solid #D2D2D2;
     border-bottom : 3px solid #D2D2D2;
+    @media (max-width : 425px) {
+      tr > th {
+          font-size : 15px;
+      }
+      tr > th:nth-child(5) {
+          display : none;
+      }
+    }
 `;
 
 

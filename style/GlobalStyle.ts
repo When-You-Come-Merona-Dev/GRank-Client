@@ -7,7 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         padding : 0;
     }
     button:focus,
-    input:focus {
+    input:focus,
+    select:focus {
         outline: none;
     }
     button {

@@ -1,7 +1,15 @@
-export default function Home() {
+import React, { Suspense } from "react";
+import { RankContainer, HeaderContainer } from "../container";
+import ModalPortalContainer from "../container/ModalPortalContainer";
+
+const Rank: React.FC = () => {
   return (
     <>
-      <h1>Hello, Next.JS!</h1>
+      <HeaderContainer />
+      <ModalPortalContainer />
+      <RankContainer />
     </>
   );
-}
+};
+
+export default Rank;

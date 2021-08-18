@@ -20,15 +20,33 @@ class Rank {
             throw error
         }
     }
-    async addPersonRank(username: string) {
+    async addPersonRank(grade : number) {
         try {
-            const body = {
-                username : username
-            }
             const response = requestCustomAxios({
-                method: "POST",
-                url: RANK.ranks(),
-                body
+                method: "PATCH",
+                url: RANK.addUser(),
+                body: {
+                    grade,
+                    is_public : true
+                },
+                header: {
+                    'Authorization' : `Bearer ${localStorage.getItem('grank_token')}`
+                }
+            })
+
+            return response;
+        } catch (error) {
+            throw error
+        }
+    }
+    async renew() {
+        try {
+            const response = requestCustomAxios({
+                method: "PATCH",
+                url: RANK.renew(),
+                header: {
+                    'Authorization' : `Bearer ${localStorage.getItem('grank_token')}`
+                }
             })
 
             return response;

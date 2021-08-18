@@ -8,7 +8,6 @@ class Admin {
                 username : username,
                 password : password
             }
-            console.log(body)
             const response = requestCustomAxios({
                 method: "POST",
                 url: ADMIN.login(),

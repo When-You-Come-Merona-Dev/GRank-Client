@@ -1,5 +1,5 @@
 {
-    "BASE_URL" : "http://3.36.108.83:3052",
+    "BASE_URL" : "http://api.grank.kro.kr",
     "SUB_URL" : "",
     "BASE_HEADER" : {}
 }

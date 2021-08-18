@@ -30,7 +30,13 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <meta name="google-site-verification" content="uoMSO_w0nL4vARnEPAgU96Vvub-NZsrFlwE5M7JUBKg" />
+        </Head>
+        <title>GRank</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"></link>
         <body>
           <Main />
           <NextScript />

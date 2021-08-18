@@ -8,41 +8,61 @@ export const Positioner = styled.div`
     align-items: center;
 `;
 
-export const RankListTitleWrapper = styled.div`
-    width : 50%;
-    padding : 25px 0;
-    border-bottom : 2px solid #90AFFF;
-    span {
-        padding: 10px 30px;
-        color : #90AFFF !important;
+export const RankListTable = styled.table`
+    border-collapse: collapse;
+    width : 85%auto;
+    @media (max-width : 1024px) {
+        width : 100%;
+    }
+    tr {
+        text-align: left;
+    }
+    tr > th {
+        text-align: center;
+        padding : 12px 60px;
+        @media (max-width : 1024px) {
+            padding : 8px 10px;
+        }
+        color : #CDCDCD;
         font-weight: bold;
+        font-size : 20px;
     }
-    & > span:nth-child(2) {
-        flex: 0.38;
-        padding: 10px 23px;
-        padding-right : 55px;
+    tr > th:first-child {
+        padding : 12px 80px;
+        @media (max-width : 1024px) {
+            padding: 8px 40px;
+        }
+        @media (max-width : 425px) {
+            padding : 0;
+        }
     }
-    display : flex;
+    tr > th:last-child {
+        padding : 12px 150px;
+        @media (max-width : 1024px) {
+            padding: 8px 80px;
+        }
+        @media (max-width : 425px) {
+            padding : 0;
+        }
+    }
 `;
 
-export const ModalOpenLinkWrapper = styled.div`
-    width : 50%;
-    display : flex;
-    align-items: center;
-    cursor: pointer;
-    justify-content: space-between;
-    span {
-        padding: 3px;
-        color : #c3c3c3;
-        font-size : 14px;
+export const RankListTitleWrapper = styled.thead`
+    border-top : 3px solid #D2D2D2;
+    border-bottom : 3px solid #D2D2D2;
+    @media (max-width : 425px) {
+      tr > th {
+          font-size : 15px;
+      }
+      tr > th:nth-child(5) {
+          display : none;
+      }
     }
 `;
 
 
-export const RankListWrapper = styled.div`
-    width : 50%;
-    display : flex;
-    flex-direction : column;
+export const RankListWrapper = styled.tbody`
+    
 `;
 
 export const RankItemWrapper = styled.div`

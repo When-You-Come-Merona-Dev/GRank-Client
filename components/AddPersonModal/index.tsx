@@ -1,35 +1,60 @@
 import React from "react";
+import Image from "next/image";
+
 import * as S from "./styled";
 
+interface IRankItem {
+  id: number;
+  username: string;
+  avatar_url: string;
+  commit_count: number;
+  is_approved: boolean;
+  groups: Array<any>;
+}
+
 interface IAddPersonModal {
-  name: string;
-  githubId: string;
-  setName: (e: any) => void;
-  setGithubId: (e: any) => void;
+  grade: number | null;
+  userinfo: IRankItem;
+  setGrade: (e: any) => void;
   addPerson: () => void;
   removeModal: () => void;
 }
 
-const AddPersonModal: React.FC<IAddPersonModal> = ({ name, githubId, setGithubId, setName, addPerson, removeModal }) => {
+const AddPersonModal: React.FC<IAddPersonModal> = ({ grade, userinfo, setGrade, addPerson, removeModal }) => {
   return (
     <S.Positioner>
-      <S.TitleWrapper>랭킹 인원 추가</S.TitleWrapper>
-      <S.AddPersonFormWrapper>
-        <div>
-          <span>이름</span>
-          <span>Github ID</span>
-        </div>
-        <div>
-          <input type="text" placeholder="이름을 입력하세요" value={name} onChange={setName} />
-          <input type="text" placeholder="Github ID를 입력하세요" value={githubId} onChange={setGithubId} />
-        </div>
-      </S.AddPersonFormWrapper>
-      <S.AddPersonBtnWrapper>
-        <S.AddPersonBtn onClick={addPerson}>추가하기</S.AddPersonBtn>
-        <S.AddPersonBtn cancel onClick={removeModal}>
-          취소하기
-        </S.AddPersonBtn>
-      </S.AddPersonBtnWrapper>
+      <S.Wrapper>
+        <S.TitleWrapper>
+          <div>
+            <Image src={"/githubIcon.png"} width={40} height={40} />
+            <span>GitHub</span>
+          </div>
+        </S.TitleWrapper>
+        <S.AddPersonFormWrapper>
+          <S.ProfileWrapper>
+            <S.ProfileImage src={userinfo.avatar_url} width={180} height={180} />
+            <span>{userinfo.username}</span>
+          </S.ProfileWrapper>
+          <S.AddPersonForm>
+            <input type="text" placeholder="학년을 입력하세요" value={grade} onChange={setGrade} />
+            {/* <S.UserGroupListWrapper>
+              <span>속한 그룹</span>
+              <div>
+                <S.GroupItem>
+                  <span>SHA</span>
+                  <button>x</button>
+                </S.GroupItem>
+              </div>
+            </S.UserGroupListWrapper> */}
+          </S.AddPersonForm>
+        </S.AddPersonFormWrapper>
+        <S.AddPersonBtnWrapper>
+          <S.CancelBtn cancel onClick={removeModal}>
+            취소
+          </S.CancelBtn>
+          <S.AddPersonBtn onClick={addPerson}>등록</S.AddPersonBtn>
+        </S.AddPersonBtnWrapper>
+      </S.Wrapper>
     </S.Positioner>
   );
 };

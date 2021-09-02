@@ -23,7 +23,7 @@ const Title: React.FC<ITitle> = ({ gradeFilter, showAddPersonModal, setGradeFilt
       </S.RankMenuWrapper>
       <S.RankFilterWrapper filter={gradeFilter}>
         <button onClick={setAllFilter}>전체 순위</button>
-        <button>그룹 순위</button>
+        <button onClick={() => {}}>그룹 순위</button>
         <button onClick={setGradeFilter}>학년 별 순위</button>
       </S.RankFilterWrapper>
     </S.Positioner>

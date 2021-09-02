@@ -36,7 +36,7 @@ class MyDocument extends Document {
         <title>GRank</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"></link>
+        <link href="//font.elice.io/EliceDigitalBaeum.css" rel="stylesheet"></link>
         <body>
           <Main />
           <NextScript />

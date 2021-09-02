@@ -6,7 +6,7 @@ import useModal from "../../hooks/useModal";
 import { loginState } from "../../model/UserModel/atoms";
 import { getUserInfo } from "../../model/UserModel/selector";
 
-const clientURL = "https://github.com/login/oauth/authorize?client_id=2cca2281ca2420906073&redirect_uri=http://localhost:3000/success/";
+const clientURL = "https://github.com/login/oauth/authorize?client_id=2cca2281ca2420906073&redirect_uri=https://www.gsm-grank.com/success";
 
 const HeaderContainer: React.FC = () => {
   const [isLogged, setLogged] = useRecoilState(loginState);

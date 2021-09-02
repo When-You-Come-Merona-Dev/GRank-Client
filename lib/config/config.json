@@ -1,5 +1,5 @@
 {
-    "BASE_URL" : "http://api.grank.kro.kr",
+    "BASE_URL" : "http://api.gsm-grank.com",
     "SUB_URL" : "",
     "BASE_HEADER" : {}
 }
